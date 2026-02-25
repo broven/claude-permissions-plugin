@@ -1,7 +1,7 @@
 {
   "name": "claude-permissions-plugin",
   "description": "Bash permission management for Claude Code: auto-approve compound commands, sync project permissions to global settings, and analyze permission logs to discover missing allow rules.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "broven"
   },
