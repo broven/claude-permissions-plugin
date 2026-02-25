@@ -187,13 +187,12 @@ def main():
             sys.exit(0)  # normal permission flow
 
     # Every part matched → approve
-    reason = "auto-approved: " + " | ".join(parts)
     log(f"APPROVE | parts: {parts}")
     print(json.dumps({
         "hookSpecificOutput": {
             "hookEventName": "PreToolUse",
             "permissionDecision": "allow",
-            "permissionDecisionReason": reason,
+            "permissionDecisionReason": "✅ auto-approved by claude-permissions-plugin",
         }
     }))
     sys.exit(0)
