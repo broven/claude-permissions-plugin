@@ -14,6 +14,7 @@ Automatically approves compound Bash commands (joined with `&&`, `||`, `;`, `|`,
 - Shell builtins (`echo`, `printf`, `cd`, etc.) and variable assignments are auto-allowed
 - Logs every decision to `/tmp/bash-compound-allow.log`
 - When a part is **not** allowed, shows a `systemMessage` identifying the exact command
+- **Note:** In subagent contexts the hook still fires and enforces rules, but the `systemMessage` is not surfaced to the user — check `/tmp/bash-compound-allow.log` to see what was blocked
 
 ### 2. Skill: `/permission-update`
 
@@ -26,11 +27,33 @@ Run periodically to keep your allow list up to date.
 
 ## Installation
 
-```bash
-/plugin install claude-permissions-plugin@broven
+### From GitHub (recommended)
+
+In Claude Code, run these two commands:
+
+```
+/plugin marketplace add broven/claude-permissions-plugin
+/plugin install claude-permissions-plugin@broven-claude-permissions-plugin
+```
+To install for a specific project only (shared with collaborators via `.claude/settings.json`):
+
+```
+/plugin install claude-permissions-plugin@broven-claude-permissions-plugin --scope project
 ```
 
-Or add to a marketplace and install from there.
+### From a local clone
+
+```bash
+git clone https://github.com/broven/claude-permissions-plugin.git
+```
+
+Then in Claude Code:
+
+```
+/plugin marketplace add ./claude-permissions-plugin
+/plugin install claude-permissions-plugin@claude-permissions-plugin
+```
+
 
 ## Log
 
@@ -41,4 +64,4 @@ All hook decisions are written to `/tmp/bash-compound-allow.log`:
 [14:23:05] PROMPT  | not in allow list: 'unknowncmd foo'
 ```
 
-Use `/permission-analyze` to turn PROMPT entries into allow rules.
+Use `/permission-update` to turn PROMPT entries into allow rules.
