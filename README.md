@@ -17,13 +17,10 @@ Automatically approves compound Bash commands (joined with `&&`, `||`, `;`, `|`,
 
 ### 2. Skill: `/permission-update`
 
-Promotes project-level allow rules from `.claude/settings.local.json` to the global `~/.claude/settings.json`.
+Collects allow rule candidates from two sources and lets you pick which to promote to global settings:
 
-Useful when you've added project-specific rules and want to graduate them to global scope.
-
-### 3. Skill: `/permission-analyze`
-
-Analyzes the hook log to find commands that triggered permission prompts, ranked by frequency. Lets you interactively add safe ones to your global allow list.
+- **Source A — project settings:** rules in `.claude/settings.local.json` not yet in global `~/.claude/settings.json`
+- **Source B — hook log:** commands that triggered prompts, ranked by frequency
 
 Run periodically to keep your allow list up to date.
 
