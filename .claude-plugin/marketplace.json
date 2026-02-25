@@ -1,0 +1,23 @@
+{
+  "name": "broven-claude-permissions-plugin",
+  "owner": {
+    "name": "broven"
+  },
+  "metadata": {
+    "description": "Bash permission management for Claude Code: auto-approve compound commands, sync project permissions to global settings, and analyze permission logs to discover missing allow rules."
+  },
+  "plugins": [
+    {
+      "name": "claude-permissions-plugin",
+      "source": "./",
+      "description": "Bash permission management for Claude Code: auto-approve compound commands, sync project permissions to global settings, and analyze permission logs to discover missing allow rules.",
+      "author": {
+        "name": "broven"
+      },
+      "homepage": "https://github.com/broven/claude-permissions-plugin",
+      "repository": "https://github.com/broven/claude-permissions-plugin",
+      "license": "MIT",
+      "keywords": ["permissions", "bash", "allow", "hooks", "security"]
+    }
+  ]
+}
