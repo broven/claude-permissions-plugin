@@ -9,6 +9,5 @@
   "homepage": "https://github.com/broven/claude-permissions-plugin",
   "license": "MIT",
   "keywords": ["permissions", "bash", "allow", "hooks", "security"],
-  "hooks": "./hooks/hooks.json",
   "skills": "./skills/"
 }
