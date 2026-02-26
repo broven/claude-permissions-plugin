@@ -30,6 +30,12 @@ data["permissions"]["allow"] = merged
 global_settings.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
 print(f"Added {len(to_add)} permission(s) to global. Total: {len(merged)}.")
 
+# Clear the hook log so old entries don't reappear in future runs
+log_file = Path("/tmp/bash-compound-allow.log")
+if log_file.exists():
+    log_file.write_text("")
+    print("Cleared /tmp/bash-compound-allow.log.")
+
 # --- Remove from project settings.local ---
 if project_settings.exists():
     proj = json.loads(project_settings.read_text())

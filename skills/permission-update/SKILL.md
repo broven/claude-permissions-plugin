@@ -48,7 +48,7 @@ This merges + sorts alphabetically. It also removes promoted permissions from `.
 
 ### 5. Confirm
 
-Report what was added.
+Report what was added. The log file is automatically cleared after permissions are written.
 
 ## Notes
 
