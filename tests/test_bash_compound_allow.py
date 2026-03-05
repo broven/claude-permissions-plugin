@@ -257,8 +257,8 @@ class TestEndToEnd:
         )
         assert rc == 0
         data = json.loads(stdout)
-        assert "systemMessage" in data
-        assert "rm" in data["systemMessage"]
+        assert data.get("hookSpecificOutput", {}).get("permissionDecision") == "ask"
+        assert "rm" in data.get("hookSpecificOutput", {}).get("permissionDecisionReason")
 
     def test_simple_compound_approved(self, tmp_path):
         """Simple && compound with all parts allowed → approved."""
