@@ -247,6 +247,9 @@ def main():
     for part in parts:
         if not command_is_allowed(part, patterns):
             log(f"PROMPT  | not in allow list: {part!r}")
+            print(json.dumps({
+                "systemMessage": f"[bash-compound-allow] not in allow list: {part!r}",
+            }))
             sys.exit(0)
 
     # Every part matched → approve

@@ -256,7 +256,9 @@ class TestEndToEnd:
             settings_dir=str(tmp_path),
         )
         assert rc == 0
-        assert stdout == ""  # no output → defer to Claude Code's normal permission flow
+        data = json.loads(stdout)
+        assert "hookSpecificOutput" not in data  # no permissionDecision → defer to normal flow
+        assert "rm" in data.get("systemMessage", "")
 
     def test_simple_compound_approved(self, tmp_path):
         """Simple && compound with all parts allowed → approved."""
